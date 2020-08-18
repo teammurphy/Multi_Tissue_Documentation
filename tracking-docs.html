@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Dashboard - Brand</title>
+    <meta name="twitter:title" content="Cardiac Tissue Tracking">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:type" content="website">
+    <meta name="description" content="This project was developed to more efficiently record, track, and analyze cardiac tissue strip deflections. ">
+    <meta name="twitter:description" content="This project was developed to more efficiently record, track, and analyze cardiac tissue strip deflections. ">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/fonts/simple-line-icons.min.css">
+</head>
+
+<body id="page-top">
+    <div id="wrapper">
+        <nav class="navbar navbar-dark sticky-top align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0" style="height: 100%;">
+            <div class="container-fluid d-flex flex-column p-0">
+                <a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
+                    <div class="sidebar-brand-text mx-3"><span>Multi Tissue</span>
+                        <p>Docs</p>
+                    </div>
+                </a>
+                <hr class="sidebar-divider my-0">
+                <ul class="nav navbar-nav text-light" id="accordionSidebar">
+                    <li class="nav-item" role="presentation">
+                        <hr>
+                        <h6 class="text-center">Recording</h6><a class="nav-link" href="recording-docs.html#setup"><i class="fas fa-tachometer-alt"></i><span>Pi Setup</span></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="recording-docs.html#recording"><i class="fas fa-user"></i><span>Recording</span></a></li>
+                    <li class="nav-item" role="presentation">
+                        <hr>
+                        <h6 class="text-center">Tracking / Analysis</h6><a class="nav-link" href="#setup"><i class="fas fa-table"></i><span>Setup</span></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#upload"><i class="far fa-user-circle"></i><span>Uploads</span></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#tracking"><i class="fas fa-user-circle"></i><span>Tracking</span></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#analysis"><i class="fas fa-user-circle"></i><span>Analysis</span></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#calculations"><i class="fas fa-user-circle"></i><span>Calculations</span></a></li>
+                </ul>
+                <hr class="sidebar-divider my-0">
+                <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button></div>
+            </div>
+        </nav>
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div id="content">
+                <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
+                    <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
+                        <form class="form-inline d-none d-sm-inline-block mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                            <div class="input-group">
+                                <div class="input-group-append">
+                                    <h3>Tracking / Analysis</h3>
+                                </div>
+                            </div>
+                        </form>
+                        <ul class="nav navbar-nav flex-nowrap ml-auto">
+                            <div class="d-none d-sm-block topbar-divider"></div>
+                            <li class="nav-item" role="presentation">
+                                <div class="row">
+                                    <div class="col text-center" style="margin-top: 30px;"><a class="text-primary" href="https://github.com/teammurphy/Multi_Tissue_Recording" target="_blank"><i class="fab fa-github"></i><p>Recording</p></a></div>
+                                </div>
+                            </li>
+                            <div class="d-none d-sm-block topbar-divider"></div>
+                            <li class="nav-item" role="presentation">
+                                <div class="row">
+                                    <div class="col text-center" style="margin-top: 30px;"><a class="text-primary" href="https://github.com/teammurphy/Multi_Tissue_Tracking" target="_blank"><i class="fab fa-github"></i><p>Tracking</p></a></div>
+                                </div>
+                            </li>
+                            <div class="d-none d-sm-block topbar-divider"></div>
+                        </ul>
+                    </div>
+                </nav>
+                <div class="container-fluid">
+                    <section id="setup">
+                        <div class="d-sm-flex justify-content-between align-items-center mb-4">
+                            <h4 class="text-capitalize text-dark mb-0"><strong>Setup</strong></h4>
+                        </div>
+                        <div>
+                            <p><span>This has been tested on a&nbsp;</span><a href="#">Digital Ocean&nbsp;</a><span>droplet running Ubuntu 18.04.3 (LTS) with docker&nbsp;</span><a href="#">pre-installed.</a></p>
+                        </div>
+                        <div class="text-left">
+                            <ul class="nav nav-pills nav-fill">
+                                <li class="nav-item"><a class="nav-link active" role="tab" data-toggle="pill" href="#tab-1">Startup Script</a></li>
+                                <li class="nav-item"><a class="nav-link" role="tab" data-toggle="pill" href="#tab-2">Manual via SSH</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" role="tabpanel" id="tab-1">
+                                    <p>Copy and paste this startup script into the 'User Data' section during droplet creation. If that does not work or you are not using digital ocean please follow the manual instructions.&nbsp;&nbsp;</p>
+                                    <div class="row">
+                                        <div class="col">
+                                            <p style="font-family: 'Cutive Mono', monospace;background-color: #f0f0f0;padding-left: 10px;padding-right: 10px;padding-top: 2px;padding-bottom: 2px;white-space: nowrap;overflow-x: scroll;">#!/bin/bash<br>curl -L "https://github.com/docker/compose/releases/download/1.26.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose<br>chmod +x /usr/local/bin/docker-compose<br>wget -P
+                                                ~ https://raw.githubusercontent.com/teammurphy/Multi_Tissue_Tracking/main/docker-compose.yml<br>docker-compose -f ~/docker-compose.yml up -d<br></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" role="tabpanel" id="tab-2">
+                                    <div>
+                                        <p>SSH into virtual machine:</p>
+                                        <p style="font-family: 'Cutive Mono', monospace;background-color: #f0f0f0;padding-left: 10px;padding-right: 10px;padding-top: 2px;padding-bottom: 2px;white-space: nowrap;overflow-x: scroll;">$ ssh root@ip-of-virtual-machine</p>
+                                    </div>
+                                    <div>
+                                        <p>Install Docker:</p>
+                                        <p style="font-family: 'Cutive Mono', monospace;background-color: #f0f0f0;padding-left: 10px;padding-right: 10px;padding-top: 2px;padding-bottom: 2px;white-space: nowrap;overflow-x: scroll;">Depends on operating system.&nbsp;</p>
+                                    </div>
+                                    <div>
+                                        <p>Update docker-compose:</p>
+                                        <p style="font-family: 'Cutive Mono', monospace;background-color: #f0f0f0;padding-left: 10px;padding-right: 10px;padding-top: 2px;padding-bottom: 2px;white-space: nowrap;overflow-x: scroll;">$ curl -L "https://github.com/docker/compose/releases/download/1.26.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose<br> $ chmod +x /usr/local/bin/docker-compose</p>
+                                    </div>
+                                    <div>
+                                        <p>Pull docker-compose.yml:</p>
+                                        <p style="font-family: 'Cutive Mono', monospace;background-color: #f0f0f0;padding-left: 10px;padding-right: 10px;padding-top: 2px;padding-bottom: 2px;white-space: nowrap;overflow-x: scroll;">$ wget https://raw.githubusercontent.com/Jack-alope/Multi_Tissue_Tracking/main/docker-compose.yml</p>
+                                    </div>
+                                    <div>
+                                        <p>Deploy</p>
+                                        <p style="font-family: 'Cutive Mono', monospace;background-color: #f0f0f0;padding-left: 10px;padding-right: 10px;padding-top: 2px;padding-bottom: 2px;white-space: nowrap;overflow-x: scroll;">$ docker-compose up -d<br></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                    </section>
+                    <section id="upload">
+                        <div class="d-sm-flex justify-content-between align-items-center mb-4">
+                            <h4 class="text-capitalize text-dark mb-0"><strong>Uploads</strong></h4>
+                        </div>
+                        <div>
+                            <p>Uploads info to come. Can upload video or folder ... hopefully.&nbsp;</p>
+                        </div>
+                        <hr>
+                    </section>
+                    <section id="tracking">
+                        <div class="d-sm-flex justify-content-between align-items-center mb-4">
+                            <h4 class="text-capitalize text-dark mb-0"><strong>Tracking.&nbsp;</strong></h4>
+                        </div>
+                        <div>
+                            <p>Uploads info to come. Can upload video or folder ... hopefully.&nbsp;</p>
+                        </div>
+                        <div>
+                            <ul class="nav nav-pills nav-fill text-capitalize">
+                                <li class="nav-item"><a class="nav-link active" role="tab" data-toggle="pill" href="#tab-3">Video</a></li>
+                                <li class="nav-item"><a class="nav-link" role="tab" data-toggle="pill" href="#tab-4">Guide</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" role="tabpanel" id="tab-3">
+                                    <p>Content for tab 3.</p><video muted="" loop="" autoplay="" width="80%"><source src="https://mtt.murphs.team/img/tracking.mov" type="video/mp4"></video></div>
+                                <div class="tab-pane text-right" role="tabpanel" id="tab-4">
+                                    <p></p>
+                                    <div>
+                                        <p>Enter calibration distance, submit, and draw bow (black) corresponding to that distance.&nbsp;&nbsp;</p><img src="assets/img/cal.png" width="80%"></div>
+                                    <div>
+                                        <p>Draw a box (pink) for each cross section.</p><img src="assets/img/cross.png" width="80%"></div>
+                                    <div>
+                                        <p>Draw a box (red) for the top left post.</p><img src="assets/img/firstpost.png" width="80%"></div>
+                                    <div>
+                                        <p>Draw a box (red) for the bottom left post.&nbsp;</p><img src="assets/img/secondpost.png" width="80%"></div>
+                                    <div>
+                                        <p>Continues towards the right drawing boxes (red) in same fashion for each tissue.&nbsp;</p><img src="assets/img/secondpost.png" width="80%">
+                                        <p>Tracking will start automatically once you have drawn the expected number of posts.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                    </section>
+                    <section id="analysis">
+                        <div class="d-sm-flex justify-content-between align-items-center mb-4">
+                            <h4 class="text-capitalize text-dark mb-0"><strong>Analysis</strong></h4>
+                        </div>
+                        <div>
+                            <p>Dashboard: Adjusts graphs in real time based on user input. Points shown are points used for calculations once "Calculate" is clicked.&nbsp;</p><video width="80%" muted="" loop="" autoplay=""><source src="https://mtt.murphs.team/img/rangeslider.mov" type="video/mp4"></video></div>
+                        <div
+                            class="card">
+                            <div class="card-body">
+                                <p class="card-text"></p>
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Options</th>
+                                                <th>Meaning</th>
+                                                <th>Restrictions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Polynomial</td>
+                                                <td>What polynomial to use for curve fitting</td>
+                                                <td>&lt; window length</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Window Length</td>
+                                                <td>Number of coefficients for smoothing</td>
+                                                <td>odd, greater than polynomial</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Peak Sen. Thresh</td>
+                                                <td>How sensitive to finding peaks. Lower = more sensitive&nbsp;</td>
+                                                <td>(0, 1)</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Buffer</td>
+                                                <td>Distance from peak before it starts looking for base/front points</td>
+                                                <td>If too large will miss base/front points.</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Min Distance</td>
+                                                <td>Min distance between peaks</td>
+                                                <td>If too large will miss peaks.&nbsp;</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                </div>
+                <hr>
+                </section>
+                <section id="calculations">
+                    <div class="d-sm-flex justify-content-between align-items-center mb-4">
+                        <h4 class="text-capitalize text-dark mb-0"><strong>Calculations</strong></h4>
+                    </div>
+                    <div>
+                        <p>Explanations to come</p>
+                    </div>
+                    <hr>
+                </section>
+            </div>
+        </div>
+        <footer class="bg-white sticky-footer">
+            <div class="container my-auto">
+                <div class="text-center my-auto copyright"><span>Documentation written and maintained by&nbsp;<a href="#">Jack F. Murphy</a></span></div>
+            </div>
+        </footer>
+    </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a></div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+    <script src="assets/js/theme.js"></script>
+</body>
+
+</html>
