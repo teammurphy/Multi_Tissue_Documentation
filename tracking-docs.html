@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
     <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
     <link rel="stylesheet" href="assets/fonts/simple-line-icons.min.css">
+    <link rel="stylesheet" href="assets/css/styles.min.css">
 </head>
 
 <body id="page-top">
@@ -87,9 +88,10 @@
                             <div class="tab-content">
                                 <div class="tab-pane active" role="tabpanel" id="tab-1">
                                     <p style="margin-top: 10px;">Copy and paste this startup script into the 'User Data' section during droplet creation. If that does not work or you are not using digital ocean please follow the manual instructions.&nbsp;&nbsp;</p>
+                                    <div class="text-right"><button class="btn btn-primary" type="button" onclick="copyfunction(&quot;startup&quot;)">Copy Script</button></div>
                                     <div class="row">
-                                        <div class="col">
-                                            <p style="font-family: 'Cutive Mono', monospace;background-color: #f0f0f0;padding-left: 10px;padding-right: 10px;padding-top: 2px;padding-bottom: 2px;white-space: nowrap;overflow-x: scroll;">#!/bin/bash<br>curl -L "https://github.com/docker/compose/releases/download/1.26.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose<br>chmod +x /usr/local/bin/docker-compose<br>wget -P
+                                        <div class="col text-left">
+                                            <p id="startup" style="font-family: 'Cutive Mono', monospace;background-color: #f0f0f0;padding-left: 10px;padding-right: 10px;padding-top: 2px;padding-bottom: 2px;white-space: nowrap;overflow-x: scroll;">#!/bin/bash<br>curl -L "https://github.com/docker/compose/releases/download/1.26.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose<br>chmod +x /usr/local/bin/docker-compose<br>wget -P
                                                 ~ https://raw.githubusercontent.com/teammurphy/Multi_Tissue_Tracking/main/docker-compose.yml<br>docker-compose -f ~/docker-compose.yml up -d<br></p>
                                         </div>
                                     </div>
@@ -232,7 +234,7 @@
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
-    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/script.min.js"></script>
 </body>
 
 </html>
