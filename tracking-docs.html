@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
     <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/fonts/line-awesome.min.css">
     <link rel="stylesheet" href="assets/fonts/simple-line-icons.min.css">
     <link rel="stylesheet" href="assets/css/styles.min.css">
 </head>
@@ -82,13 +83,13 @@
                         </div>
                         <div class="text-left">
                             <ul class="nav nav-pills nav-fill">
-                                <li class="nav-item"><a class="nav-link active" role="tab" data-toggle="pill" href="#tab-1">Startup Script</a></li>
-                                <li class="nav-item"><a class="nav-link" role="tab" data-toggle="pill" href="#tab-2">Manual via SSH</a></li>
+                                <li class="nav-item"><a class="nav-link" role="tab" data-toggle="pill" href="#tab-1">Startup Script</a></li>
+                                <li class="nav-item"><a class="nav-link active" role="tab" data-toggle="pill" href="#tab-2">Manual via SSH</a></li>
                             </ul>
                             <div class="tab-content">
-                                <div class="tab-pane active" role="tabpanel" id="tab-1">
+                                <div class="tab-pane" role="tabpanel" id="tab-1">
                                     <p style="margin-top: 10px;">Copy and paste this startup script into the 'User Data' section during droplet creation. If that does not work or you are not using digital ocean please follow the manual instructions.&nbsp;&nbsp;</p>
-                                    <div class="text-right"><button class="btn btn-primary" type="button" onclick="copyfunction(&quot;startup&quot;)">Copy Script</button></div>
+                                    <div class="text-right"><button class="btn btn-outline-primary" type="button" onclick="copyfunction(&quot;startup&quot;)"><i class="la la-copy"></i></button></div>
                                     <div class="row">
                                         <div class="col text-left">
                                             <p id="startup" style="font-family: 'Cutive Mono', monospace;background-color: #f0f0f0;padding-left: 10px;padding-right: 10px;padding-top: 2px;padding-bottom: 2px;white-space: nowrap;overflow-x: scroll;">#!/bin/bash<br>curl -L "https://github.com/docker/compose/releases/download/1.26.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose<br>chmod +x /usr/local/bin/docker-compose<br>wget -P
@@ -96,7 +97,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="tab-pane" role="tabpanel" id="tab-2">
+                                <div class="tab-pane active" role="tabpanel" id="tab-2">
                                     <div>
                                         <p>SSH into virtual machine:</p>
                                         <p style="font-family: 'Cutive Mono', monospace;background-color: #f0f0f0;padding-left: 10px;padding-right: 10px;padding-top: 2px;padding-bottom: 2px;white-space: nowrap;overflow-x: scroll;">$ ssh root@ip-of-virtual-machine</p>
@@ -107,15 +108,17 @@
                                     </div>
                                     <div>
                                         <p>Update docker-compose:</p>
-                                        <p style="font-family: 'Cutive Mono', monospace;background-color: #f0f0f0;padding-left: 10px;padding-right: 10px;padding-top: 2px;padding-bottom: 2px;white-space: nowrap;overflow-x: scroll;">$ curl -L "https://github.com/docker/compose/releases/download/1.26.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose<br> $ chmod +x /usr/local/bin/docker-compose</p>
+                                        <p style="font-family: 'Cutive Mono', monospace;background-color: #f0f0f0;padding-left: 10px;padding-right: 10px;padding-top: 2px;padding-bottom: 2px;white-space: nowrap;overflow-x: scroll;"><button class="btn btn-outline-primary" type="button" onclick="copyfunction(&quot;curl&quot;)"><i class="la la-copy"></i></button><span>&nbsp;$&nbsp;</span><span id="curl">curl -L "https://github.com/docker/compose/releases/download/1.26.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose</span></p>
+                                        <p
+                                            style="font-family: 'Cutive Mono', monospace;background-color: #f0f0f0;padding-left: 10px;padding-right: 10px;padding-top: 2px;padding-bottom: 2px;white-space: nowrap;overflow-x: scroll;"><button class="btn btn-outline-primary" type="button" onclick="copyfunction(&quot;execute&quot;)"><i class="la la-copy"></i></button><span>&nbsp;$&nbsp;</span><span id="execute">chmod +x /usr/local/bin/docker-compose</span></p>
                                     </div>
                                     <div>
                                         <p>Pull docker-compose.yml:</p>
-                                        <p style="font-family: 'Cutive Mono', monospace;background-color: #f0f0f0;padding-left: 10px;padding-right: 10px;padding-top: 2px;padding-bottom: 2px;white-space: nowrap;overflow-x: scroll;">$ wget https://raw.githubusercontent.com/Jack-alope/Multi_Tissue_Tracking/main/docker-compose.yml</p>
+                                        <p style="font-family: 'Cutive Mono', monospace;background-color: #f0f0f0;padding-left: 10px;padding-right: 10px;padding-top: 2px;padding-bottom: 2px;white-space: nowrap;overflow-x: scroll;"><button class="btn btn-outline-primary" type="button" onclick="copyfunction(&quot;pullcompose&quot;)"><i class="la la-copy"></i></button><span>&nbsp;$&nbsp;</span><span id="pullcompose">wget https://raw.githubusercontent.com/Jack-alope/Multi_Tissue_Tracking/main/docker-compose.yml</span>&nbsp;<br></p>
                                     </div>
                                     <div>
                                         <p>Deploy</p>
-                                        <p style="font-family: 'Cutive Mono', monospace;background-color: #f0f0f0;padding-left: 10px;padding-right: 10px;padding-top: 2px;padding-bottom: 2px;white-space: nowrap;overflow-x: scroll;">$ docker-compose up -d<br></p>
+                                        <p style="font-family: 'Cutive Mono', monospace;background-color: #f0f0f0;padding-left: 10px;padding-right: 10px;padding-top: 2px;padding-bottom: 2px;white-space: nowrap;overflow-x: scroll;"><button class="btn btn-outline-primary" type="button" onclick="copyfunction(&quot;deploy&quot;)"><i class="la la-copy"></i></button><span>&nbsp;$&nbsp;</span><span id="deploy">docker-compose up -d</span></p>
                                     </div>
                                 </div>
                             </div>
