@@ -83,11 +83,11 @@
                         </div>
                         <div class="text-left">
                             <ul class="nav nav-pills nav-fill">
-                                <li class="nav-item"><a class="nav-link" role="tab" data-toggle="pill" href="#tab-1">Startup Script</a></li>
-                                <li class="nav-item"><a class="nav-link active" role="tab" data-toggle="pill" href="#tab-2">Manual via SSH</a></li>
+                                <li class="nav-item"><a class="nav-link active" role="tab" data-toggle="pill" href="#tab-1">Startup Script</a></li>
+                                <li class="nav-item"><a class="nav-link" role="tab" data-toggle="pill" href="#tab-2">Manual via SSH</a></li>
                             </ul>
                             <div class="tab-content">
-                                <div class="tab-pane" role="tabpanel" id="tab-1">
+                                <div class="tab-pane active" role="tabpanel" id="tab-1">
                                     <p style="margin-top: 10px;">Copy and paste this startup script into the 'User Data' section during droplet creation. If that does not work or you are not using digital ocean please follow the manual instructions.&nbsp;&nbsp;</p>
                                     <div class="text-right"><button class="btn btn-outline-primary" type="button" onclick="copyfunction(&quot;startup&quot;)"><i class="la la-copy"></i></button></div>
                                     <div class="row">
@@ -97,7 +97,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="tab-pane active" role="tabpanel" id="tab-2">
+                                <div class="tab-pane" role="tabpanel" id="tab-2">
                                     <div>
                                         <p>SSH into virtual machine:</p>
                                         <p style="font-family: 'Cutive Mono', monospace;background-color: #f0f0f0;padding-left: 10px;padding-right: 10px;padding-top: 2px;padding-bottom: 2px;white-space: nowrap;overflow-x: scroll;">$ ssh root@ip-of-virtual-machine</p>
