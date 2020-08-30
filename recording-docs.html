@@ -34,14 +34,14 @@
                         <hr>
                         <h6 class="text-center">Recording</h6><a class="nav-link" href="#setup"><i class="far fa-building"></i><span>Hardware Setup [Coming]</span></a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="#setup"><i class="fab fa-raspberry-pi"></i><span>Pi Setup</span></a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="#recording"><i class="fas fa-video"></i><span>Recording [Coming]</span></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#recording"><i class="fas fa-video"></i><span>Recording</span></a></li>
                     <li class="nav-item" role="presentation">
                         <hr>
-                        <h6 class="text-center">Tracking / Analysis</h6><a class="nav-link" href="#setup"><i class="fas fa-tools"></i><span>Setup</span></a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="#upload"><i class="la la-upload"></i><span>Uploads</span></a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="#tracking"><i class="icon-eye"></i><span>Tracking</span></a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="#analysis"><i class="icon-graph"></i><span>Analysis</span></a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="#calculations"><i class="typcn typcn-sort-numerically"></i><span>Calculations</span></a></li>
+                        <h6 class="text-center">Tracking / Analysis</h6><a class="nav-link" href="tracking-docs.html#setup"><i class="fas fa-tools"></i><span>Setup</span></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="tracking-docs.html#upload"><i class="la la-upload"></i><span>Uploads</span></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="tracking-docs.html#tracking"><i class="icon-eye"></i><span>Tracking</span></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="tracking-docs.html#analysis"><i class="icon-graph"></i><span>Analysis</span></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="tracking-docs.html#calculations"><i class="typcn typcn-sort-numerically"></i><span>Calculations</span></a></li>
                 </ul>
                 <hr class="sidebar-divider my-0">
                 <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button></div>
@@ -104,56 +104,36 @@
                         </div>
                         <div>
                             <p><strong>Insert SD and boot up:</strong></p>
-                            <p><span>Insert the micro sd card, make sure the pi is connected to Ethernet (or you have wifi set up), and power it on.&nbsp;&nbsp;</span></p><span style="background-color: #f0f0f0;font-weight: normal;font-family: 'Cutive Mono', monospace;padding-top: 1px;padding-bottom: 1px;">http://ip-of-pi:5000</span>
-                            <hr
-                                style="border-style: dashed;">
+                            <p><span>Insert the micro sd card, make sure the pi is connected to Ethernet (or you have wifi set up), and power it on.&nbsp;&nbsp;</span></p>
+                            <hr style="border-style: dashed;">
                         </div>
                         <div>
                             <p><strong>Find the IP:</strong></p>
-                            <p><span>Type&nbsp;</span><span style="background-color: #f0f0f0;font-weight: normal;font-family: 'Cutive Mono', monospace;padding-top: 1px;padding-bottom: 1px;">ping DietPi</span><span>&nbsp;into the terminal of a computer on the same network as the Pi. This should return the ip address the pi is using. You can then find the web interface at&nbsp;</span>
-                                <span
-                                    style="background-color: #f0f0f0;font-weight: normal;font-family: 'Cutive Mono', monospace;padding-top: 1px;padding-bottom: 1px;">http://ip-of-pi:5000</span>
-                            </p>
-                            <hr style="border-style: dashed;">
-                            <hr>
+                            <p><span>Type&nbsp;</span><span style="background-color: #f0f0f0;font-weight: normal;font-family: 'Cutive Mono', monospace;padding-top: 1px;padding-bottom: 1px;">ping DietPi</span><span>&nbsp;into the terminal of a computer on the same network as the Pi. This should return the ip address the pi is using. You can then find the web interface at&nbsp;</span></p>
+                            <hr
+                                style="border-style: dashed;">
+                                <hr>
                         </div>
                     </section>
-                </div>
-                <div class="container-fluid">
-                    <section id="setup-1">
+                    <section id="recording">
                         <div class="d-sm-flex justify-content-between align-items-center mb-4">
-                            <h4 class="text-capitalize text-dark mb-0"><strong>Pi Setup</strong></h4>
+                            <h4 class="text-capitalize text-dark mb-0"><strong>Recording</strong></h4>
                         </div>
                         <div>
-                            <p>This has been tested on the raspberry pi 4 4gb version. Currently uses a 32 bit image, will be upgraded to a 64 bit image in the near future.&nbsp;</p>
+                            <p>Web interface located at&nbsp;<span style="background-color: #f0f0f0;font-weight: normal;font-family: 'Cutive Mono', monospace;padding-top: 1px;padding-bottom: 1px;">http://ip-of-pi:5000</span></p>
                             <hr style="border-style: dashed;">
                         </div>
                         <div>
-                            <p><strong>Download Pi Image:</strong></p>
-                            <p>This is a custom image built on a dietpi base image specifically for this project.&nbsp;</p><a class="btn btn-outline-primary" role="button" href="https://drive.google.com/uc?export=download&amp;confirm=mwUH&amp;id=1p7PzelXvKiNhEsT7pZFsVeXI3edP3ICL">Trackspian gzip&nbsp;<i class="icon-arrow-down-circle"></i></a>
-                            <hr
-                                style="border-style: dashed;">
-                        </div>
-                        <div>
-                            <p><strong>Flash Image onto micro SD:</strong></p>
-                            <p><span>Use&nbsp;</span><a href="https://www.balena.io/etcher/">balena etcher</a><span>&nbsp;or something similar to flash the sd card with the .img file. If you download .gz file you will need to unzip it to get the .img file.&nbsp;</span></p>
-                            <hr
-                                style="border-style: dashed;">
-                        </div>
-                        <div>
-                            <p><strong>Insert SD and boot up:</strong></p>
-                            <p><span>Insert the micro sd card, make sure the pi is connected to Ethernet (or you have wifi set up), and power it on.&nbsp;&nbsp;</span></p><span style="background-color: #f0f0f0;font-weight: normal;font-family: 'Cutive Mono', monospace;padding-top: 1px;padding-bottom: 1px;">http://ip-of-pi:5000</span>
-                            <hr
-                                style="border-style: dashed;">
-                        </div>
-                        <div>
-                            <p><strong>Find the IP:</strong></p>
-                            <p><span>Type&nbsp;</span><span style="background-color: #f0f0f0;font-weight: normal;font-family: 'Cutive Mono', monospace;padding-top: 1px;padding-bottom: 1px;">ping DietPi</span><span>&nbsp;into the terminal of a computer on the same network as the Pi. This should return the ip address the pi is using. You can then find the web interface at&nbsp;</span>
-                                <span
-                                    style="background-color: #f0f0f0;font-weight: normal;font-family: 'Cutive Mono', monospace;padding-top: 1px;padding-bottom: 1px;">http://ip-of-pi:5000</span>
-                            </p>
+                            <p><strong>Connect to VM:&nbsp;</strong></p><img src="assets/img/connect.png" width="80%">
+                            <p>Enter the ip of your remote machine. If you have not set one up yet follow instructions&nbsp;<a href="tracking-docs.html">here</a>.</p>
                             <hr style="border-style: dashed;">
-                            <hr>
+                        </div>
+                        <div>
+                            <p><strong>Record Video:</strong></p><img src="assets/img/recording.png" width="80%">
+                            <p><span>Use the controls on the left to get the posts into focus. Fill out the form with which tissues are in the video. The 6 check boxes from top to bottom represent the 6 possible tissues from left to right. Once you click upload it will record a video and send it to your remote machine.&nbsp;&nbsp;</span></p>
+                            <hr
+                                style="border-style: dashed;">
+                                <hr>
                         </div>
                     </section>
                 </div>
