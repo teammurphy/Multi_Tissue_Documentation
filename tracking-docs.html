@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
     <link rel="stylesheet" href="assets/fonts/line-awesome.min.css">
     <link rel="stylesheet" href="assets/fonts/simple-line-icons.min.css">
+    <link rel="stylesheet" href="assets/fonts/typicons.min.css">
     <link rel="stylesheet" href="assets/css/styles.min.css">
 </head>
 
@@ -31,15 +32,16 @@
                 <ul class="nav navbar-nav text-light" id="accordionSidebar">
                     <li class="nav-item" role="presentation">
                         <hr>
-                        <h6 class="text-center">Recording</h6><a class="nav-link" href="recording-docs.html#setup"><i class="fas fa-tachometer-alt"></i><span>Pi Setup</span></a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="recording-docs.html#recording"><i class="fas fa-user"></i><span>Recording</span></a></li>
+                        <h6 class="text-center">Recording</h6><a class="nav-link" href="recording-docs.html#setup"><i class="far fa-building"></i><span>Hardware Setup [Coming]</span></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="recording-docs.html#setup"><i class="fab fa-raspberry-pi"></i><span>Pi Setup</span></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="recording-docs.html#recording"><i class="fas fa-video"></i><span>Recording</span></a></li>
                     <li class="nav-item" role="presentation">
                         <hr>
-                        <h6 class="text-center">Tracking / Analysis</h6><a class="nav-link" href="#setup"><i class="fas fa-table"></i><span>Setup</span></a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="#upload"><i class="far fa-user-circle"></i><span>Uploads</span></a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="#tracking"><i class="fas fa-user-circle"></i><span>Tracking</span></a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="#analysis"><i class="fas fa-user-circle"></i><span>Analysis</span></a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="#calculations"><i class="fas fa-user-circle"></i><span>Calculations</span></a></li>
+                        <h6 class="text-center">Tracking / Analysis</h6><a class="nav-link" href="#setup"><i class="fas fa-tools"></i><span>Setup</span></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#upload"><i class="la la-upload"></i><span>Uploads</span></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#tracking"><i class="icon-eye"></i><span>Tracking</span></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#analysis"><i class="icon-graph"></i><span>Analysis</span></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#calculations"><i class="typcn typcn-sort-numerically"></i><span>Calculations</span></a></li>
                 </ul>
                 <hr class="sidebar-divider my-0">
                 <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button></div>
@@ -57,6 +59,12 @@
                             </div>
                         </form>
                         <ul class="nav navbar-nav flex-nowrap ml-auto">
+                            <div class="d-none d-sm-block topbar-divider"></div>
+                            <li class="nav-item" role="presentation">
+                                <div class="row">
+                                    <div class="col text-center" style="margin-top: 30px;"><a class="text-primary" href="https://github.com/teammurphy/Multi_Tissue_CAD" target="_blank"><i class="fab fa-github"></i><p>Hardware</p></a></div>
+                                </div>
+                            </li>
                             <div class="d-none d-sm-block topbar-divider"></div>
                             <li class="nav-item" role="presentation">
                                 <div class="row">
@@ -93,7 +101,7 @@
                                     <div class="row">
                                         <div class="col text-left">
                                             <p id="startup" style="font-family: 'Cutive Mono', monospace;background-color: #f0f0f0;padding-left: 10px;padding-right: 10px;padding-top: 2px;padding-bottom: 2px;white-space: nowrap;overflow-x: scroll;">#!/bin/bash<br>curl -L "https://github.com/docker/compose/releases/download/1.26.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose<br>chmod +x /usr/local/bin/docker-compose<br>wget -P
-                                                ~ https://raw.githubusercontent.com/teammurphy/Multi_Tissue_Tracking/main/docker-compose.yml<br>docker-compose -f ~/docker-compose.yml up -d<br></p>
+                                                ~ https://raw.githubusercontent.com/teammurphy/Multi_Tissue_Tracking/main/docker-compose.yml<br>docker-compose -f ~/docker-compose.yml up -d<br></p><span>Make sure you add the Raspberry Pi's ssh keys. Visit&nbsp;<span style="background-color: #f0f0f0;font-weight: normal;font-family: 'Cutive Mono', monospace;padding-top: 1px;padding-bottom: 1px;">http://ip-of-machine</span></span>
                                         </div>
                                     </div>
                                 </div>
@@ -182,6 +190,7 @@
                                                 <th>Options</th>
                                                 <th>Meaning</th>
                                                 <th>Restrictions</th>
+                                                <th>Default</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -189,26 +198,31 @@
                                                 <td>Polynomial</td>
                                                 <td>What polynomial to use for curve fitting</td>
                                                 <td>&lt; window length</td>
+                                                <td>3</td>
                                             </tr>
                                             <tr>
                                                 <td>Window Length</td>
                                                 <td>Number of coefficients for smoothing</td>
                                                 <td>odd, greater than polynomial</td>
+                                                <td>13</td>
                                             </tr>
                                             <tr>
                                                 <td>Peak Sen. Thresh</td>
                                                 <td>How sensitive to finding peaks. Lower = more sensitive&nbsp;</td>
                                                 <td>(0, 1)</td>
+                                                <td>.6</td>
                                             </tr>
                                             <tr>
                                                 <td>Buffer</td>
                                                 <td>Distance from peak before it starts looking for base/front points</td>
                                                 <td>If too large will miss base/front points.</td>
+                                                <td>3</td>
                                             </tr>
                                             <tr>
                                                 <td>Min Distance</td>
                                                 <td>Min distance between peaks</td>
                                                 <td>If too large will miss peaks.&nbsp;</td>
+                                                <td>5</td>
                                             </tr>
                                         </tbody>
                                     </table>
