@@ -30,18 +30,18 @@
                 </a>
                 <hr class="sidebar-divider my-0">
                 <ul class="nav navbar-nav text-light" id="accordionSidebar">
-                    <li class="nav-item" role="presentation">
+                    <li class="nav-item">
                         <hr>
                         <h6 class="text-center">Recording</h6><a class="nav-link" href="#setup"><i class="far fa-building"></i><span>Hardware Setup [Coming]</span></a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="#setup"><i class="fab fa-raspberry-pi"></i><span>Pi Setup</span></a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="#recording"><i class="fas fa-video"></i><span>Recording</span></a></li>
-                    <li class="nav-item" role="presentation">
+                    <li class="nav-item"><a class="nav-link" href="#setup"><i class="fab fa-raspberry-pi"></i><span>Pi Setup</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="#recording"><i class="fas fa-video"></i><span>Recording</span></a></li>
+                    <li class="nav-item">
                         <hr>
                         <h6 class="text-center">Tracking / Analysis</h6><a class="nav-link" href="tracking-docs.html#setup"><i class="fas fa-tools"></i><span>Setup</span></a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="tracking-docs.html#upload"><i class="la la-upload"></i><span>Uploads</span></a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="tracking-docs.html#tracking"><i class="icon-eye"></i><span>Tracking</span></a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="tracking-docs.html#analysis"><i class="icon-graph"></i><span>Analysis</span></a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="tracking-docs.html#calculations"><i class="typcn typcn-sort-numerically"></i><span>Calculations</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="tracking-docs.html#upload"><i class="la la-upload"></i><span>Uploads</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="tracking-docs.html#tracking"><i class="icon-eye"></i><span>Tracking</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="tracking-docs.html#analysis"><i class="icon-graph"></i><span>Analysis</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="tracking-docs.html#calculations"><i class="typcn typcn-sort-numerically"></i><span>Calculations</span></a></li>
                 </ul>
                 <hr class="sidebar-divider my-0">
                 <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button></div>
@@ -60,19 +60,19 @@
                         </form>
                         <ul class="nav navbar-nav flex-nowrap ml-auto">
                             <div class="d-none d-sm-block topbar-divider"></div>
-                            <li class="nav-item" role="presentation">
+                            <li class="nav-item">
                                 <div class="row">
                                     <div class="col text-center" style="margin-top: 30px;"><a class="text-primary" href="https://github.com/teammurphy/Multi_Tissue_CAD" target="_blank"><i class="fab fa-github"></i><p>Hardware</p></a></div>
                                 </div>
                             </li>
                             <div class="d-none d-sm-block topbar-divider"></div>
-                            <li class="nav-item" role="presentation">
+                            <li class="nav-item">
                                 <div class="row">
                                     <div class="col text-center" style="margin-top: 30px;"><a class="text-primary" href="https://github.com/teammurphy/Multi_Tissue_Recording" target="_blank"><i class="fab fa-github"></i><p>Recording</p></a></div>
                                 </div>
                             </li>
                             <div class="d-none d-sm-block topbar-divider"></div>
-                            <li class="nav-item" role="presentation">
+                            <li class="nav-item">
                                 <div class="row">
                                     <div class="col text-center" style="margin-top: 30px;"><a class="text-primary" href="https://github.com/teammurphy/Multi_Tissue_Tracking" target="_blank"><i class="fab fa-github"></i><p>Tracking</p></a></div>
                                 </div>
@@ -109,10 +109,14 @@
                         </div>
                         <div>
                             <p><strong>Find the IP:</strong></p>
-                            <p><span>Type&nbsp;</span><span style="background-color: #f0f0f0;font-weight: normal;font-family: 'Cutive Mono', monospace;padding-top: 1px;padding-bottom: 1px;">ping DietPi</span><span>&nbsp;into the terminal of a computer on the same network as the Pi. This should return the ip address the pi is using. You can then find the web interface at&nbsp;</span></p>
-                            <hr
-                                style="border-style: dashed;">
-                                <hr>
+                            <p><strong><em>Option 1: Using ping</em></strong></p>
+                            <p><span>Type&nbsp;</span><span style="background-color: #f0f0f0;font-weight: normal;font-family: 'Cutive Mono', monospace;padding-top: 1px;padding-bottom: 1px;">ping DietPi</span><span>&nbsp;into the terminal of a computer on the same network as the Pi. This should return the ip address the pi is using. You can then find the web interface at http://ip-of-pi:5000.&nbsp;</span></p>
+                            <p><strong><em>Option 2: Using nmap</em></strong></p>
+                            <p><span>Make sure your computer is on the same network as the pi and find the ip address using&nbsp;</span><span style="background-color: #f0f0f0;font-weight: normal;font-family: 'Cutive Mono', monospace;padding-top: 1px;padding-bottom: 1px;">hostname -I</span></p>
+                            <p><span>List all the devices on your network using&nbsp;</span><span style="background-color: #f0f0f0;font-weight: normal;font-family: 'Cutive Mono', monospace;padding-top: 1px;padding-bottom: 1px;">sudo nmap -sn first.second.third.0/24</span><span>&nbsp;where the first.second.third is replaced by the first three numbers of your ip.&nbsp;</span></p>
+                            <p><span>The ip should be listed under the entry "Raspberry Pi Trading". You can find the web interface at http://ip-of-pi:5000.</span></p>
+                            <hr style="border-style: dashed;">
+                            <hr>
                         </div>
                     </section>
                     <section id="recording">
